@@ -12,13 +12,23 @@ const NewRecipeComponent = (props) => {
         })
         console.log(newRecipe);
     }
-    const submitNewRecipe = (e) => {
+    const submitNewRecipe = async (e) => {
         e.preventDefault();
         if (newRecipe.name.length > 2) {
             console.log('yes it is greater than 2 letters');
+            const apiResponse = await fetch('https://veganlicious.herokuapp.com/api/recipes', {
+               method: "POST",
+               body: JSON.stringify(newRecipe),
+               headers: {
+                   'Content-Type': "application/json"
+               } 
+            })
+            const parsedResponse = await apiResponse.json();
+            console.log(parsedResponse);
+
             props.setRecipes([
                 ...props.recipes,
-                newRecipe
+                parsedResponse
             ])
             console.log(props.recipes);
         } else {

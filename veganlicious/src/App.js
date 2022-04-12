@@ -5,7 +5,7 @@ import RecipesContainer from './RecipesContainer/RecipesContainer';
 import NewRecipeComponent from './RecipesContainer/NewRecipeComponent';
 
 function App() {
-  const [recipes, setRecipes] = useState([{name: 'nachos', link: 'https://minimalistbaker.com/the-best-damn-vegan-nachos/'}, {name: 'nachos', link: 'https://minimalistbaker.com/the-best-damn-vegan-nachos/'}]);
+  const [recipes, setRecipes] = useState([]);
   return (
     <div className="App">
       <h1>Recipes Yay</h1>
