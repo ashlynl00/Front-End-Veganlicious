@@ -8,7 +8,7 @@ const RecipesContainer = (props) => {
         <ul>
             {props.recipes.map((recipe)=>{
                 return (
-                    <li><SingleRecipeComponent recipe={recipe}></SingleRecipeComponent></li>
+                    <li><SingleRecipeComponent recipe={recipe} recipes={props.recipes} setRecipes={props.setRecipes}></SingleRecipeComponent></li>
                 )
             })}
         </ul>
