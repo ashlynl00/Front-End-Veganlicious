@@ -11,14 +11,33 @@ const UpdateRecipeComponent = (props) => {
             [e.target.name]: e.target.value
         })
     }
+    const updateContactAPI = async (idToUpdate) => {
+        const apiResponse = await fetch(`https://veganlicious.herokuapp.com/api/recipes/${idToUpdate}`, {
+            method: "PUT",
+            body: JSON.stringify(updateRecipe),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (apiResponse.status == 200) {
+            const parsedResponse = await apiResponse.json();
+            let newList = [];
+            for (let i=0; i<props.recipes.length; i++) {
+                if (props.recipes[i].id == props.recipe.id) {
+                    newList.push(parsedResponse);
+                } else {
+                    newList.push(props.recipes[i])
+                }
+            }
+            props.setRecipes(newList);
+            console.log(props.recipes);
+        }
+    }
     const submitUpdateRecipe = (e) => {
         e.preventDefault();
         if (updateRecipe.name.length > 2) {
             console.log('yes it is greater than 2 letters');
-            props.setRecipes([
-                ...props.recipes,
-                updateRecipe
-            ])
+            updateContactAPI(props.recipe.id);
             console.log(props.recipes);
         } else {
             console.log('in else')
