@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import SingleRecipeComponent from "./SingleRecipeComponent/SingleRecipeComponent";
+import apiUrl from "../apiConfig";
 
 const RecipesContainer = (props) => {
     const [showing, setShowing] = useState(false);
@@ -9,7 +10,7 @@ const RecipesContainer = (props) => {
     // get the recipes so we can show them below through map
     // start with fake data
     const getRecipes = async () => {
-        const getRecipesApiResponse = await fetch ('https://veganlicious.herokuapp.com/api/recipes');
+        const getRecipesApiResponse = await fetch (`${apiUrl}/api/recipes`);
         const parsedResponse = await getRecipesApiResponse.json();
         console.log(parsedResponse);
         console.log(parsedResponse[0].name);
