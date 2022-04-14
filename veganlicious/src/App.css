@@ -36,3 +36,66 @@
     transform: rotate(360deg);
   }
 }
+
+
+#search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ECEAD1;
+}
+
+#search-logo {
+  height: 30px;
+  width: 30px;
+}
+
+#nav-bar {
+  background-color:  #E2C4AA;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-bar ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+}
+
+#nav-bar li {
+  list-style-type: none;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#new-recipe-form {
+  border: 2px solid black;
+  position: fixed;
+  height: 300px;
+  width: 600px;
+  margin-top: -150px;
+  margin-left: -300px;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+}
+
+#new-recipe-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+#new-recipe-form input {
+  width: 200px;
+  margin: 0 auto;
+}

@@ -79,7 +79,7 @@ const NewRecipeComponent = (props) => {
     }
 
     return (
-        <>
+        <div id='new-recipe-form'>
             <h2>Add a new recipe: </h2>
             <form onSubmit={submitNewRecipe} encType="multipart/form">
                 Recipe Name: <input type="text" placeholder="Recipe Name" name="name" onChange={handleInputChange} value={newRecipe.name}></input>
@@ -87,7 +87,8 @@ const NewRecipeComponent = (props) => {
                 Upload Image: <input type="file" id="image" accept="image/png, image/jpeg" name="image" onChange={handleImageChange} required/>
                 <button type='submit'>Submit</button>
             </form>
-        </>
+            <button onClick={props.toggleShowing}>Cancel</button>
+        </div>
     )
 }
 
