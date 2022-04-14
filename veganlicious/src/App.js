@@ -34,7 +34,7 @@ function App() {
       <main>
         <h1>RECIPES</h1>
         {showing ? 
-          <div id='overlay'>
+          <div className='overlay'>
             <NewRecipeComponent id='new-recipe-modal' recipes={recipes} setRecipes={setRecipes} toggleShowing={toggleShowing}></NewRecipeComponent>
           </div>
           :

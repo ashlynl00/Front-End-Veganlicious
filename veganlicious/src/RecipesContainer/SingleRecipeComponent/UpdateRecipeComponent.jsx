@@ -1,9 +1,14 @@
-import { useState } from "react"
+import { useState } from "react";
+import apiUrl from "../../apiConfig";
 
 const UpdateRecipeComponent = (props) => {
     const [updateRecipe, setUpdateRecipe] = useState({
         name: '',
-        link: ''
+        link: '',
+        description: '',
+        ingredients: '',
+        directions: '',
+        tags: ''
     })
     const handleInputChange = (e) => {
         setUpdateRecipe({
@@ -12,7 +17,7 @@ const UpdateRecipeComponent = (props) => {
         })
     }
     const updateContactAPI = async (idToUpdate) => {
-        const apiResponse = await fetch(`https://veganlicious.herokuapp.com/api/recipes/${idToUpdate}`, {
+        const apiResponse = await fetch(`${apiUrl}/api/recipes/${idToUpdate}`, {
             method: "PUT",
             body: JSON.stringify(updateRecipe),
             headers: {
@@ -45,18 +50,33 @@ const UpdateRecipeComponent = (props) => {
         }
         setUpdateRecipe({
             name: '',
-            link: ''
+            link: '',
+            description: '',
+            ingredients: '',
+            directions: '',
+            tags: ''
         });
     }
     return (
-        <>
+        <div id="edit-recipe-form">
             <h3>Update this recipe: </h3>
             <form onSubmit={submitUpdateRecipe}>
-                Recipe Name: <input type="text" name="name" value={updateRecipe.name} onChange={handleInputChange}></input>
-                Link: <input type="text" name="link" value={updateRecipe.link} onChange={handleInputChange}></input>
-                <button type="submit">Submit</button>
+                <label for='name'>Recipe Name: </label>
+                <input type="text" name="name" className="name" value={updateRecipe.name} onChange={handleInputChange}></input>
+                <label for='link'>Link: </label>
+                <input type="text" name="link" className="link" value={updateRecipe.link} onChange={handleInputChange}></input>
+                <label for='description'>Description: </label>
+                <textarea type="text" name="description" className="description" onChange={handleInputChange} value={updateRecipe.description}></textarea>
+                <label for='ingredients'>Ingredients: </label>
+                <textarea type="text" name="ingredients" className="ingredients" onChange={handleInputChange} value={updateRecipe.ingredients}></textarea>
+                <label for='directions'>Directions: </label>
+                <textarea type="text" name="directions" className="directions" onChange={handleInputChange} value={updateRecipe.directions}></textarea>
+                <label for='tags'>Tags: </label>
+                <input type="text" name="tags" className="tags" onChange={handleInputChange} value={updateRecipe.tags}></input>
+                <button type="submit" className="submit-btn">Submit</button>
             </form>
-        </>
+            <button className="cancel-btn" onClick={props.toggleShowing}>Cancel</button>
+        </div>
     )
 }
 

@@ -96,22 +96,22 @@ const NewRecipeComponent = (props) => {
             <h2>Add a new recipe: </h2>
             <form onSubmit={submitNewRecipe} encType="multipart/form">
                 <label for='name'>Recipe Name: </label>
-                <input type="text" placeholder="Recipe Name" name="name" id="name" onChange={handleInputChange} value={newRecipe.name}></input>
+                <input type="text" placeholder="Recipe Name" name="name" className="name" onChange={handleInputChange} value={newRecipe.name}></input>
                 <label for='link'>Link to Original Recipe: </label>
-                <input type="text" placeholder="Link" name="link" id="link" onChange={handleInputChange} value={newRecipe.link}></input>
+                <input type="text" placeholder="Link" name="link" className="link" onChange={handleInputChange} value={newRecipe.link}></input>
                 <label for='image'>Upload cover Image: </label>
                 <input type="file" id="image" accept="image/png, image/jpeg" name="image" onChange={handleImageChange} required/>
                 <label for='description'>Description: </label>
-                <textarea type="text" placeholder="Description" name="description" id="description" onChange={handleInputChange} value={newRecipe.description}></textarea>
+                <textarea type="text" placeholder="Description" name="description" className="description" onChange={handleInputChange} value={newRecipe.description}></textarea>
                 <label for='ingredients'>Ingredients: </label>
-                <textarea type="text" placeholder="Ingredients" name="ingredients" id="ingredients" onChange={handleInputChange} value={newRecipe.ingredients}></textarea>
+                <textarea type="text" placeholder="Ingredients" name="ingredients" className="ingredients" onChange={handleInputChange} value={newRecipe.ingredients}></textarea>
                 <label for='directions'>Directions: </label>
-                <textarea type="text" placeholder="Directions" name="directions" id="directions" onChange={handleInputChange} value={newRecipe.directions}></textarea>
+                <textarea type="text" placeholder="Directions" name="directions" className="directions" onChange={handleInputChange} value={newRecipe.directions}></textarea>
                 <label for='tags'>Tags: </label>
-                <input type="text" placeholder="Tags" name="tags" id="tags" onChange={handleInputChange} value={newRecipe.tags}></input>
-                <button type='submit' id="new-submit-btn">Submit</button>
+                <input type="text" placeholder="Tags" name="tags" className="tags" onChange={handleInputChange} value={newRecipe.tags}></input>
+                <button type='submit' className="submit-btn">Submit</button>
             </form>
-            <button id="new-cancel-btn" onClick={props.toggleShowing}>Cancel</button>
+            <button className="cancel-btn" onClick={props.toggleShowing}>Cancel</button>
         </div>
     )
 }
