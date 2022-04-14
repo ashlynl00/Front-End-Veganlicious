@@ -21,7 +21,7 @@ const DeleteRecipeComponent = (props) => {
     }
     return (
         <>
-            <button onClick={()=>{deleteRecipe(props.recipe.id)}}>Delete this recipe</button>
+            <button onClick={()=>{deleteRecipe(props.recipe.id)}} className='recipe-btn'>Delete this recipe</button>
         </>
     )
 }

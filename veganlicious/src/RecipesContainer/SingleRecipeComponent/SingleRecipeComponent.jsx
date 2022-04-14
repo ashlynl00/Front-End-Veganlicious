@@ -8,20 +8,18 @@ const SingleRecipeComponent = (props) => {
         setShowing(!showing);
     }
     return (
-        <>  
+        <div className="single-recipe">  
             <h2>{props.recipe.name}</h2>
-            <img src={props.recipe.image}></img>
-            <p>{props.recipe.link}</p>
+            <img src={props.recipe.image} id="recipe-img"></img>
             {showing ?
                 <div className="overlay">
-                    <UpdateRecipeComponent recipe={props.recipe} recipes={props.recipes} setRecipes={props.setRecipes} toggleShowing={toggleShowing}></UpdateRecipeComponent>
+                    <UpdateRecipeComponent className='recipe-btn' recipe={props.recipe} recipes={props.recipes} setRecipes={props.setRecipes} toggleShowing={toggleShowing}></UpdateRecipeComponent>
                 </div>
                 :
-                <button onClick={toggleShowing}>Edit Recipe</button>
+                <button onClick={toggleShowing} className='recipe-btn'>Edit Recipe</button>
             }
-            
             <DeleteRecipeComponent recipe={props.recipe} recipes={props.recipes} setRecipes={props.setRecipes}></DeleteRecipeComponent>
-        </>
+        </div>
     )
 }
 
