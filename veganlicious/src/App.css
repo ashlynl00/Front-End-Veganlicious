@@ -49,6 +49,11 @@
   width: 30px;
 }
 
+#logo {
+  height: 220px;
+  width: 220px;
+}
+
 #nav-bar {
   background-color:  #E2C4AA;
   height: 200px;
@@ -61,6 +66,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding-left: 0;
 }
 

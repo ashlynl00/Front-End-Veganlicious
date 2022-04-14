@@ -4,6 +4,7 @@ import { useState } from 'react';
 import RecipesContainer from './RecipesContainer/RecipesContainer';
 import NewRecipeComponent from './RecipesContainer/NewRecipeComponent';
 import search_logo from './magnifying-glass.png';
+import vegan_logo from './VEGANLICIOUS-removebg-preview.png'
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -18,15 +19,17 @@ function App() {
           <img src={search_logo} id='search-logo'></img>
           <p>Search</p>
         </section>
+        <hr></hr>
         <section id='nav-bar'>
           <ul>
             <li>About</li>
             <li>How to Use</li>
-            <li>VEGANLICIOUS</li>
+            <li><img src={vegan_logo} id='logo'></img></li>
             <li>Contact</li>
             <li>New Recipe</li>
           </ul>
         </section>
+        <hr></hr>
       </nav>
       <main>
         <h1>RECIPES</h1>
