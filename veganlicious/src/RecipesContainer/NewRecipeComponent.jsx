@@ -6,7 +6,11 @@ const NewRecipeComponent = (props) => {
     const [newRecipe, setNewRecipe] = useState({
         name: '',
         link: '',
-        image: ''
+        image: '',
+        description: '',
+        directions: '',
+        ingredients: '',
+        tags: ''
     })
     const handleInputChange = (e) => {
         setNewRecipe({
@@ -29,6 +33,10 @@ const NewRecipeComponent = (props) => {
             form_data.append('image', newRecipe.image);
             form_data.append('name', newRecipe.name);
             form_data.append('link', newRecipe.link);
+            form_data.append('description', newRecipe.description);
+            form_data.append('directions', newRecipe.directions);
+            form_data.append('ingredients', newRecipe.ingredients);
+            form_data.append('tags', newRecipe.tags);
             let url = `${apiUrl}/api/recipes`;
             axios.post(url, form_data, {
             headers: {
@@ -74,20 +82,36 @@ const NewRecipeComponent = (props) => {
         setNewRecipe({
             name: '',
             link: '',
-            image: ''
+            image: '',
+            description: '',
+            directions: '',
+            ingredients: '',
+            tags: ''
         });
+        props.toggleShowing();
     }
 
     return (
         <div id='new-recipe-form'>
             <h2>Add a new recipe: </h2>
             <form onSubmit={submitNewRecipe} encType="multipart/form">
-                Recipe Name: <input type="text" placeholder="Recipe Name" name="name" onChange={handleInputChange} value={newRecipe.name}></input>
-                Link to Recipe if Exists: <input type="text" placeholder="Link" name="link" onChange={handleInputChange} value={newRecipe.link}></input>
-                Upload Image: <input type="file" id="image" accept="image/png, image/jpeg" name="image" onChange={handleImageChange} required/>
-                <button type='submit'>Submit</button>
+                <label for='name'>Recipe Name: </label>
+                <input type="text" placeholder="Recipe Name" name="name" id="name" onChange={handleInputChange} value={newRecipe.name}></input>
+                <label for='link'>Link to Original Recipe: </label>
+                <input type="text" placeholder="Link" name="link" id="link" onChange={handleInputChange} value={newRecipe.link}></input>
+                <label for='image'>Upload cover Image: </label>
+                <input type="file" id="image" accept="image/png, image/jpeg" name="image" onChange={handleImageChange} required/>
+                <label for='description'>Description: </label>
+                <textarea type="text" placeholder="Description" name="description" id="description" onChange={handleInputChange} value={newRecipe.description}></textarea>
+                <label for='ingredients'>Ingredients: </label>
+                <textarea type="text" placeholder="Ingredients" name="ingredients" id="ingredients" onChange={handleInputChange} value={newRecipe.ingredients}></textarea>
+                <label for='directions'>Directions: </label>
+                <textarea type="text" placeholder="Directions" name="directions" id="directions" onChange={handleInputChange} value={newRecipe.directions}></textarea>
+                <label for='tags'>Tags: </label>
+                <input type="text" placeholder="Tags" name="tags" id="tags" onChange={handleInputChange} value={newRecipe.tags}></input>
+                <button type='submit' id="new-submit-btn">Submit</button>
             </form>
-            <button onClick={props.toggleShowing}>Cancel</button>
+            <button id="new-cancel-btn" onClick={props.toggleShowing}>Cancel</button>
         </div>
     )
 }

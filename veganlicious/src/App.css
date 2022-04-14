@@ -37,7 +37,7 @@
   }
 }
 
-
+/* Navigation Section */
 #search-bar {
   display: flex;
   align-items: center;
@@ -74,6 +74,10 @@
   list-style-type: none;
 }
 
+
+
+/* New Recipe Section */
+
 #overlay {
   position: absolute;
   top: 0;
@@ -81,19 +85,21 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 #new-recipe-form {
   border: 2px solid black;
   position: fixed;
-  height: 300px;
+  height: 500px;
   width: 600px;
-  margin-top: -150px;
+  margin-top: -250px;
   margin-left: -300px;
   z-index: 5;
   top: 50%;
   left: 50%;
   background-color: white;
+  overflow-y: auto;
 }
 
 #new-recipe-form form {
@@ -101,7 +107,43 @@
   flex-direction: column;
 }
 
-#new-recipe-form input {
-  width: 200px;
+#new-recipe-form input, textarea {
   margin: 0 auto;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#new-recipe-form label {
+  margin-top: 15px;
+}
+
+#link {
+  width: 400px;
+}
+
+#description, #ingredients {
+  width: 400px;
+  height: 100px;
+}
+
+#directions {
+  width: 400px;
+  height: 200px;
+}
+
+#tags {
+  width: 250px;
+}
+
+#new-submit-btn {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 100px;
+}
+
+#new-cancel-btn {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100px;
 }
