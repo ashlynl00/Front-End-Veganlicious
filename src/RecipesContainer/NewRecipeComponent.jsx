@@ -29,6 +29,18 @@ const NewRecipeComponent = (props) => {
     const submitNewRecipe = async (e) => {
         e.preventDefault();
         if (newRecipe.name.length > 2) {
+            if(newRecipe.image){
+                const data = new FormData()
+                data.append('file', newRecipe.image)
+                data.append('upload_preset', 'veganlicious')
+                console.log(newRecipe.image)
+                const imageUpload = await axios.post('https://api.cloudinary.com/v1_1/dcbh0v5ds/image/upload', data)
+                console.log(imageUpload.data.url)
+                newRecipe.image = await imageUpload.data.url
+            }else{
+                newRecipe.image = 'https://i.imgur.com/BSnwSzw.png'
+            }
+
             let form_data = new FormData();
             form_data.append('image', newRecipe.image);
             form_data.append('name', newRecipe.name);
