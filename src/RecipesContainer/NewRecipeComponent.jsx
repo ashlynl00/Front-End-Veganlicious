@@ -38,6 +38,8 @@ const NewRecipeComponent = (props) => {
             form_data.append('ingredients', newRecipe.ingredients);
             form_data.append('tags', newRecipe.tags);
             let url = `${apiUrl}/api/recipes`;
+            console.log('here is form data');
+            console.log(form_data);
             axios.post(url, form_data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
