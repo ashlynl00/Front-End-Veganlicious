@@ -37,6 +37,16 @@
   }
 }
 
+
+
+/* Body Styling */
+body {
+  font-family: 'Hind Siliguri', sans-serif;
+  letter-spacing: 1px;
+}
+
+
+
 /* Navigation Section */
 #search-bar {
   display: flex;
@@ -72,8 +82,13 @@
 
 #nav-bar li {
   list-style-type: none;
+  font-size: larger;
+  font-family: 'Homemade Apple', cursive;
 }
 
+main h1 {
+  letter-spacing: 10px;
+}
 
 
 /* New Recipe and Edit Recipe Modals */
