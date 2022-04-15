@@ -1,7 +1,9 @@
+import apiUrl from "../../apiConfig";
+
 const DeleteRecipeComponent = (props) => {
     const deleteRecipe = async (idToDelete) => {
         try {
-            const deleteResponse = await fetch(`https://veganlicious.herokuapp.com/api/recipes/${idToDelete}`, {
+            const deleteResponse = await fetch(`${apiUrl}/api/recipes/${idToDelete}`, {
             method: "DELETE"
             });
             if (deleteResponse.status == 204) {
