@@ -2,7 +2,7 @@ import search_logo from '../magnifying-glass.png';
 import vegan_logo from '../VEGANLICIOUS-removebg-preview.png';
 import {Link, useNavigate} from 'react-router-dom';
 
-const NavComponent = () => {
+const NavComponent = (props) => {
     return (
         <nav>
          <section id='search-bar'>
@@ -24,7 +24,7 @@ const NavComponent = () => {
             <Link to='/contact'>
                 <li>Contact</li>
             </Link>
-            <li>New Recipe</li>
+            <li onClick={props.toggleShowing} id='new-recipe-nav'>New Recipe</li>
            </ul>
          </section>
          <hr></hr>

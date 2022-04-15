@@ -99,6 +99,9 @@ main h1 {
   letter-spacing: 10px;
 }
 
+#new-recipe-nav {
+  cursor: pointer;
+}
 
 /* New Recipe and Edit Recipe Modals */
 

@@ -10,12 +10,16 @@ import NavComponent from './NavComponent/NavComponent';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [showing, setShowing] = useState(false);
+  const toggleShowing = () => {
+    setShowing(!showing);
+  }
   return (
     <Router>
       <div className="App">
-        <NavComponent></NavComponent>
+        <NavComponent toggleShowing={toggleShowing}></NavComponent>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home toggleShowing={toggleShowing} showing={showing} />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/how-to-use" element={<HowToUse />}></Route>
@@ -55,21 +59,21 @@ function App() {
   );
 }
 
-const Home = () => {
+const Home = (props) => {
   const [recipes, setRecipes] = useState([]);
-  const [showing, setShowing] = useState(false);
-  const toggleShowing = () => {
-    setShowing(!showing);
-  }
+  // const [showing, setShowing] = useState(false);
+  // const toggleShowing = () => {
+  //   setShowing(!showing);
+  // }
   return (
     <main>
          <h1>RECIPES</h1>
-         {showing ? 
+         {props.showing ? 
            <div className='overlay'>
-             <NewRecipeComponent id='new-recipe-modal' recipes={recipes} setRecipes={setRecipes} toggleShowing={toggleShowing}></NewRecipeComponent>
+             <NewRecipeComponent id='new-recipe-modal' recipes={recipes} setRecipes={setRecipes} toggleShowing={props.toggleShowing}></NewRecipeComponent>
            </div>
            :
-           <button id='new-recipe-btn' onClick={toggleShowing}>Add Recipe</button>
+           <button id='new-recipe-btn' onClick={props.toggleShowing}>Add Recipe</button>
          } 
          <RecipesContainer recipes={recipes} setRecipes={setRecipes}></RecipesContainer>
        </main>
