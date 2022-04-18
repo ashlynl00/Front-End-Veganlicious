@@ -1,4 +1,9 @@
 # Veganlicious
+Front-End deployed app:
+https://veganliciousrecipes.herokuapp.com/
+
+Back-End deployed app:
+https://veganlicious.herokuapp.com/api/recipes
 
 ## Technologies
 Used Django as my backend server with Postgresql as my database. On the front-end, I implemented React Router with React.js.
